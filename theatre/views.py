@@ -1,8 +1,8 @@
 from django.shortcuts import render
 from rest_framework import viewsets
 
-from theatre.models import Genre, Actor
-from theatre.serializers import GenreSerializer, ActorSerializer
+from theatre.models import Genre, Actor, Play
+from theatre.serializers import GenreSerializer, ActorSerializer, PlaySerializer
 
 
 class GenreViewSet(viewsets.ModelViewSet):
@@ -13,3 +13,8 @@ class GenreViewSet(viewsets.ModelViewSet):
 class ActorViewSet(viewsets.ModelViewSet):
     queryset = Actor.objects
     serializer_class = ActorSerializer
+
+
+class PlayViewSet(viewsets.ModelViewSet):
+    queryset = Play.objects
+    serializer_class = PlaySerializer
