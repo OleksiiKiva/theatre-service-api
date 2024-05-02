@@ -56,3 +56,5 @@ class Performance(models.Model):
 
     def __str__(self):
         return self.play.title + " " + str(self.show_time)
+
+
