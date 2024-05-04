@@ -1,4 +1,6 @@
-from rest_framework import viewsets
+from rest_framework import viewsets, status
+from rest_framework.decorators import action
+from rest_framework.response import Response
 
 from theatre.models import (
     Genre,
@@ -6,7 +8,8 @@ from theatre.models import (
     Play,
     TheatreHall,
     Performance,
-    Reservation, Ticket
+    Reservation,
+    Ticket
 )
 from theatre.serializers import (
     GenreSerializer,
@@ -15,7 +18,10 @@ from theatre.serializers import (
     TheatreHallSerializer,
     PerformanceSerializer,
     ReservationSerializer,
-    TicketSerializer, PlayListSerializer, PlayDetailSerializer,
+    TicketSerializer,
+    PlayListSerializer,
+    PlayDetailSerializer,
+    PlayImageSerializer,
 )
 
 
@@ -42,15 +48,18 @@ class PlayViewSet(viewsets.ModelViewSet):
         if self.action == "retrieve":
             serializer_class = PlayDetailSerializer
 
+        if self.action == "upload_image":
+            serializer_class = PlayImageSerializer
+
         return serializer_class
 
     @staticmethod
-    def _params_to_ints(qs):
+    def _params_to_ints(query_string: str) -> list[int]:
         """
         Converts a list of string IDs to a list of integers
         """
 
-        return [int(str_id) for str_id in qs.split(",")]
+        return [int(str_id) for str_id in query_string.split(",")]
 
     def get_queryset(self):
         """
@@ -75,6 +84,25 @@ class PlayViewSet(viewsets.ModelViewSet):
             queryset = queryset.filter(actors__id__in=actors_ids)
 
         return queryset.distinct()
+
+    @action(
+        methods=["POST"],
+        detail=True,
+        url_path="upload-image",
+    )
+    def upload_image(self, request, pk=None):
+        """
+        Endpoint for uploading image to specific play
+        """
+
+        play = self.get_object()
+        serializer = self.get_serializer(play, data=request.data)
+
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_200_OK)
+
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
 class TheatreHallViewSet(viewsets.ModelViewSet):
