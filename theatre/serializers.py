@@ -1,3 +1,4 @@
+from django.db import transaction
 from rest_framework import serializers
 from rest_framework.exceptions import ValidationError
 
@@ -96,7 +97,7 @@ class TicketSerializer(serializers.ModelSerializer):
         Ticket.validate_ticket(
             attrs["row"],
             attrs["seat"],
-            attrs["performance"].cinema_hall,
+            attrs["performance"].theatre_hall,
             ValidationError
         )
         return data
@@ -134,7 +135,7 @@ class ReservationSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Reservation
-        fields = ("id", "tickets", "created_at", "user",)
+        fields = ("id", "tickets", "created_at",)
 
 
 class ReservationListSerializer(ReservationSerializer):

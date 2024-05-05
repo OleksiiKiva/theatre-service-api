@@ -162,6 +162,9 @@ class ReservationViewSet(viewsets.ModelViewSet):
     )
     serializer_class = ReservationSerializer
 
+    def get_queryset(self):
+        return Reservation.objects.filter(user=self.request.user)
+
     def get_serializer_class(self):
         serializer_class = self.serializer_class
 
@@ -169,6 +172,9 @@ class ReservationViewSet(viewsets.ModelViewSet):
             serializer_class = ReservationListSerializer
 
         return serializer_class
+
+    def perform_create(self, serializer):
+        serializer.save(user=self.request.user)
 
 
 class TicketViewSet(viewsets.ModelViewSet):
