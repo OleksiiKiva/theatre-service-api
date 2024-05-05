@@ -32,12 +32,12 @@ from theatre.serializers import (
 
 
 class GenreViewSet(viewsets.ModelViewSet):
-    queryset = Genre.objects
+    queryset = Genre.objects.all()
     serializer_class = GenreSerializer
 
 
 class ActorViewSet(viewsets.ModelViewSet):
-    queryset = Actor.objects
+    queryset = Actor.objects.all()
     serializer_class = ActorSerializer
 
 
@@ -112,7 +112,7 @@ class PlayViewSet(viewsets.ModelViewSet):
 
 
 class TheatreHallViewSet(viewsets.ModelViewSet):
-    queryset = TheatreHall.objects
+    queryset = TheatreHall.objects.all()
     serializer_class = TheatreHallSerializer
 
 
@@ -178,5 +178,5 @@ class ReservationViewSet(viewsets.ModelViewSet):
 
 
 class TicketViewSet(viewsets.ModelViewSet):
-    queryset = Ticket.objects
+    queryset = Ticket.objects.all()
     serializer_class = TicketSerializer
