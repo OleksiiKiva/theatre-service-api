@@ -1,6 +1,8 @@
 from datetime import datetime
 
 from django.db.models import Count, F
+from drf_spectacular.types import OpenApiTypes
+from drf_spectacular.utils import extend_schema, OpenApiParameter
 from rest_framework import viewsets, status, mixins
 from rest_framework.decorators import action
 from rest_framework.permissions import IsAuthenticated, IsAdminUser
@@ -130,6 +132,32 @@ class PlayViewSet(
 
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+    @extend_schema(
+        parameters=[
+            OpenApiParameter(
+                "genres",
+                type={"type": "list", "items": {"type": "number"}},
+                description="Filter by genres id (ex. ?genres=2,5)",
+            ),
+            OpenApiParameter(
+                "actors",
+                type={"type": "list", "items": {"type": "number"}},
+                description="Filter by actors id (ex. ?actors=2,5)",
+            ),
+            OpenApiParameter(
+                "title",
+                type=OpenApiTypes.STR,
+                description="Filter by play title (ex. ?title=vaudeville)",
+            ),
+        ]
+    )
+    def list(self, request, *args, **kwargs):
+        """
+        Get list of plays
+        """
+
+        return super().list(request, *args, **kwargs)
+
 
 class TheatreHallViewSet(
     mixins.CreateModelMixin,
@@ -180,6 +208,30 @@ class PerformanceViewSet(viewsets.ModelViewSet):
             queryset = queryset.filter(play_id=int(play_id_str))
 
         return queryset
+
+    @extend_schema(
+        parameters=[
+            OpenApiParameter(
+                "play",
+                type=OpenApiTypes.INT,
+                description="Filter by play id (ex. ?play=2)",
+            ),
+            OpenApiParameter(
+                "date",
+                type=OpenApiTypes.DATE,
+                description=(
+                        "Filter by datetime of Performance"
+                        "(ex. ?date=2024-06-10)"
+                ),
+            ),
+        ]
+    )
+    def list(self, request, *args, **kwargs):
+        """
+        Get list of performances
+        """
+
+        return super().list(request, *args, **kwargs)
 
 
 class ReservationViewSet(
