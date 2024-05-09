@@ -115,7 +115,7 @@ class PlayViewSet(
     @action(
         methods=["POST"],
         detail=True,
-        # permission_classes=[IsAdminUser],
+        permission_classes=[IsAdminUser],
         url_path="upload-image",
     )
     def upload_image(self, request, pk=None):

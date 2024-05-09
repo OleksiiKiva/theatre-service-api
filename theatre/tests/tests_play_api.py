@@ -286,11 +286,9 @@ class AdminPlayTest(TestCase):
                 },
                 format="multipart",
             )
-        print(res.data)
 
         self.assertEqual(res.status_code, status.HTTP_201_CREATED)
         play = Play.objects.get(title="Title")
-        print(play.image)
         self.assertFalse(play.image)
 
     def test_image_url_is_shown_on_play_detail(self):
