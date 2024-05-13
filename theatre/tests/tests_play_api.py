@@ -160,7 +160,7 @@ class AuthenticatedPlayApiTests(TestCase):
         self.assertEqual(res.status_code, status.HTTP_403_FORBIDDEN)
 
 
-class AdminPlayTest(TestCase):
+class AdminPlayTests(TestCase):
     def setUp(self):
         self.client = APIClient()
         self.user = get_user_model().objects.create_superuser(
