@@ -175,8 +175,9 @@ class PerformanceViewSet(viewsets.ModelViewSet):
         .select_related("play", "theatre_hall")
         .annotate(
             tickets_available=(
-                    F("theatre_hall__rows") * F("theatre_hall__seats_in_row")
-                    - Count("tickets")
+                F("theatre_hall__rows")
+                * F("theatre_hall__seats_in_row")
+                - Count("tickets")
             )
         ).order_by("show_time")
     )
@@ -220,8 +221,8 @@ class PerformanceViewSet(viewsets.ModelViewSet):
                 "date",
                 type=OpenApiTypes.DATE,
                 description=(
-                        "Filter by datetime of Performance"
-                        "(ex. ?date=2024-06-10)"
+                    "Filter by datetime of Performance"
+                    "(ex. ?date=2024-06-10)"
                 ),
             ),
         ]
