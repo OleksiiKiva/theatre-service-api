@@ -39,7 +39,7 @@
 * 😎 **user branch**
 
      method                     | GET                 | POST                                             | PUT                     | PATCH                              
-                                                                                                          ---|---|---|---|---
+                                                                                                            ---|---|---|---|---
      `/api/user/register/`      | -                   | create new user                                  | -                       | -                                  
      `/api/user/token/`         | -                   | use user credential & get access & refresh token | -                       | -                                  
      `/api/user/token/refresh/` | -                   | use valid refresh token & get access token       | -                       | -                                  
@@ -49,7 +49,7 @@
 * ✏️️ **theatre branch**
 
      method                                  | GET                       | POST                                   | PUT                                       | PATCH                                              | DELETE                                    
-                                                                                                          ---|---|---|---|---|---
+                                                                                                            ---|---|---|---|---|---
      `/api/theatre/genres/`                  | get genres list           | create new genre (only admin)          | -                                         | -                                                  | -                                         
      `/api/theatre/genres/<id>/`             | -                         | -                                      | -                                         | -                                                  | -                                         
      `/api/theatre/actors/`                  | get actors list           | create new actor (only admin)        | -                                         | -                                                  | -                                         
@@ -90,7 +90,7 @@
    ```commandline
    pip install -r requirements.txt
    ```
-1. Create `.env` file in the main project directory. Add the environment variables to `.env` file as `KEY=VALUE` pair
+1. Rename `.env.sample` file as `.env`. Add the environment variables to `.env` file as `KEY=VALUE` pair
    ```
    SECRET_KEY=<your secret key>
    POSTGRES_USER=<your db username>
