@@ -280,8 +280,6 @@ class AdminPlayTests(TestCase):
                 {
                     "title": "Title",
                     "description": "Description",
-                    "genres": [1],
-                    "actors": [1],
                     "image": ntf,
                 },
                 format="multipart",
