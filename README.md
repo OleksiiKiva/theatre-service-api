@@ -3,8 +3,6 @@
 
 ## 👀 Features
 
----
-
 * Managing reservations and tickets
 * Creating plays with genres and actors
 * Creating theatre halls
@@ -15,8 +13,6 @@
 * OpenAPI 3 documentation
 
 ## 🛢️Technology stack
-
----
 
 * Backend: Python 3.12, Django 5.04, Django Rest Framework 3.15, PostgreSQL 16.2
 * Virtual Environment: venv
@@ -32,37 +28,35 @@
 
 ## 🔀 REST API Description
 
----
-
 * the app is available at: [http://localhost:8000](http://localhost:8000)
 * GET /admin/ -- login Django admin panel
 * 😎 **user branch**
 
-     method                     | GET                 | POST                                             | PUT                     | PATCH                              
-                                                                                                            ---|---|---|---|---
-     `/api/user/register/`      | -                   | create new user                                  | -                       | -                                  
-     `/api/user/token/`         | -                   | use user credential & get access & refresh token | -                       | -                                  
-     `/api/user/token/refresh/` | -                   | use valid refresh token & get access token       | -                       | -                                  
-     `/api/user/token/verify/`  | -                   | use token & get valid token status               | -                       | -                                  
-     `/api/user/me/`            | get user credential | -                                                | update login & password | particial update login or password 
+  | method                     | GET                 | POST                                             | PUT                     | PATCH                              |
+  |----------------------------|---------------------|--------------------------------------------------|-------------------------|------------------------------------|
+  | `/api/user/register/`      | -                   | create new user                                  | -                       | -                                  |
+  | `/api/user/token/`         | -                   | use user credential & get access & refresh token | -                       | -                                  |
+  | `/api/user/token/refresh/` | -                   | use valid refresh token & get access token       | -                       | -                                  |
+  | `/api/user/token/verify/`  | -                   | use token & get valid token status               | -                       | -                                  |
+  | `/api/user/me/`            | get user credential | -                                                | update login & password | particial update login or password |
 
 * ✏️️ **theatre branch**
 
-     method                                  | GET                       | POST                                   | PUT                                       | PATCH                                              | DELETE                                    
-                                                                                                            ---|---|---|---|---|---
-     `/api/theatre/genres/`                  | get genres list           | create new genre (only admin)          | -                                         | -                                                  | -                                         
-     `/api/theatre/genres/<id>/`             | -                         | -                                      | -                                         | -                                                  | -                                         
-     `/api/theatre/actors/`                  | get actors list           | create new actor (only admin)        | -                                         | -                                                  | -                                         
-     `/api/theatre/actors/<id>/`             | -                         | -                                      | -                                         | -                                                  | -                                         
-     `/api/theatre/plays/`                   | get plays list            | create new play (only admin)         | -                                         | -                                                  | -                                         
-     `/api/theatre/plays/<id>/`              | get play **pk=id**        | -                                      | -                                         | -                                                  | -                                         
-     `/api/theatre/plays/<id>/upload-image/` | -                         | upload image                        | -                                         | -                                                  | -                                         
-     `/api/theatre/theatrehalls/`            | get theatre halls list    | create new theatre hall (only admin) | -                                         | -                                                  | -                                         
-     `/api/theatre/theatrehalls/<id>/`       | -                         | -                                      | -                                         | -                                                  | -                                         
-     `/api/theatre/performances/`            | get performances list     | create new performance (only admin)  | -                                         | -                                                  | -                                         
-     `/api/theatre/performances/<id>/`       | get performance **pk=id** | -                                      | update performance **pk=id** (only admin) | partital update performance **pk=id** (only admin) | delete performance **pk=id** (only admin) 
-     `/api/theatre/reservations/`            | get reservations list     | create new reservation               | -                                         | -                                                  | -                                         
-     `/api/theatre/reservations/<id>/`       | -                         | -                                      | -                                         | -                                                  | -                                         
+  | method                                  | GET                       | POST                                 | PUT                                       | PATCH                                              | DELETE                                    |
+  |-----------------------------------------|---------------------------|--------------------------------------|-------------------------------------------|----------------------------------------------------|-------------------------------------------|
+  | `/api/theatre/genres/`                  | get genres list           | create new genre (only admin)        | -                                         | -                                                  | -                                         |
+  | `/api/theatre/genres/<id>/`             | -                         | -                                    | -                                         | -                                                  | -                                         |
+  | `/api/theatre/actors/`                  | get actors list           | create new actor (only admin)        | -                                         | -                                                  | -                                         |
+  | `/api/theatre/actors/<id>/`             | -                         | -                                    | -                                         | -                                                  | -                                         |
+  | `/api/theatre/plays/`                   | get plays list            | create new play (only admin)         | -                                         | -                                                  | -                                         |
+  | `/api/theatre/plays/<id>/`              | get play **pk=id**        | -                                    | -                                         | -                                                  | -                                         |
+  | `/api/theatre/plays/<id>/upload-image/` | -                         | upload image                         | -                                         | -                                                  | -                                         |
+  | `/api/theatre/theatrehalls/`            | get theatre halls list    | create new theatre hall (only admin) | -                                         | -                                                  | -                                         |
+  | `/api/theatre/theatrehalls/<id>/`       | -                         | -                                    | -                                         | -                                                  | -                                         |
+  | `/api/theatre/performances/`            | get performances list     | create new performance (only admin)  | -                                         | -                                                  | -                                         |
+  | `/api/theatre/performances/<id>/`       | get performance **pk=id** | -                                    | update performance **pk=id** (only admin) | partital update performance **pk=id** (only admin) | delete performance **pk=id** (only admin) |
+  | `/api/theatre/reservations/`            | get reservations list     | create new reservation               | -                                         | -                                                  | -                                         |
+  | `/api/theatre/reservations/<id>/`       | -                         | -                                    | -                                         | -                                                  | -                                         |
 
 * 🗂️ **doc branch**
     - GET `/api/schema/` -- download .yaml file
@@ -70,8 +64,6 @@
     - GET `/api/doc/redoc/` -- API documentation on ReDoc
 
 ## 🚀 Install using GitHub
-
----
 
 1. Install Python
 1. Create PostgresSQL db
@@ -118,8 +110,6 @@
 
 ## 🔑 Credentials
 
----
-
 1. Use the following command to load prepared data from fixture for a quick test
     ```
     python manage.py loaddata theatre_service_db_data.json
@@ -130,8 +120,6 @@
 
 ## 🔐 How to Obtain JSON Web Token (JWT)
 
----
-
 To get access protected endpoints you need to obtain a JWT by authenticating as a user or admin.
 Follow these steps to get your JWT token:
 
@@ -141,8 +129,6 @@ Follow these steps to get your JWT token:
 1. If `access_token` expires, you can use `refresh_token` to obtain a new one
 
 ## 🐋 Run with docker
-
----
 
 1. Install Docker
 1. Use next commands to
@@ -164,8 +150,6 @@ Follow these steps to get your JWT token:
      ```
 
 ## 📧 Contacts
-
----
 
 Please send bug reports and suggestions by email:
 [oleksii.kiva@gmail.com](mailto:oleksii.kiva@gmail.com)
