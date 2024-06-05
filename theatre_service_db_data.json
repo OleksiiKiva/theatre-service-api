@@ -1,0 +1,399 @@
+[
+  {
+    "model": "theatre.genre",
+    "pk": 1,
+    "fields": {
+      "name": "Tragedy"
+    }
+  },
+  {
+    "model": "theatre.genre",
+    "pk": 2,
+    "fields": {
+      "name": "Comedy"
+    }
+  },
+  {
+    "model": "theatre.genre",
+    "pk": 3,
+    "fields": {
+      "name": "Drama"
+    }
+  },
+  {
+    "model": "theatre.genre",
+    "pk": 4,
+    "fields": {
+      "name": "Vaudeville"
+    }
+  },
+  {
+    "model": "theatre.actor",
+    "pk": 1,
+    "fields": {
+      "first_name": "Benedict",
+      "last_name": "Cumberbatch"
+    }
+  },
+  {
+    "model": "theatre.actor",
+    "pk": 2,
+    "fields": {
+      "first_name": "Jude",
+      "last_name": "Law"
+    }
+  },
+  {
+    "model": "theatre.actor",
+    "pk": 3,
+    "fields": {
+      "first_name": "Renata",
+      "last_name": "Litvinova"
+    }
+  },
+  {
+    "model": "theatre.play",
+    "pk": 1,
+    "fields": {
+      "title": "The Picture of Dorian Grey",
+      "description": "Based on the novel by Oscar Wilde",
+      "image": "uploads/plays/the-picture-of-dorian-grey-b38e5937-f414-433b-831e-5deffaacf494.png",
+      "genres": [
+        1
+      ],
+      "actors": [
+        2
+      ]
+    }
+  },
+  {
+    "model": "theatre.play",
+    "pk": 2,
+    "fields": {
+      "title": "Hamlet",
+      "description": "Based on the novel by William Shakespeare",
+      "image": "uploads/plays/hamlet-ccbb561d-278b-4509-833e-e97b40aa63b7.png",
+      "genres": [
+        1
+      ],
+      "actors": [
+        1,
+        2,
+        3
+      ]
+    }
+  },
+  {
+    "model": "theatre.play",
+    "pk": 3,
+    "fields": {
+      "title": "Crazy Day or the Marriage of Figaro",
+      "description": "Based on the novel by Beaumarchais",
+      "image": "uploads/plays/crazy-day-or-the-marriage-of-figaro-89b8d6a0-4779-4139-bebd-eb9580a379f7.png",
+      "genres": [
+        2,
+        4
+      ],
+      "actors": [
+        1,
+        2,
+        3
+      ]
+    }
+  },
+  {
+    "model": "theatre.theatrehall",
+    "pk": 1,
+    "fields": {
+      "name": "Piccolo Teatro di Milano",
+      "rows": 25,
+      "seats_in_row": 45
+    }
+  },
+  {
+    "model": "theatre.theatrehall",
+    "pk": 2,
+    "fields": {
+      "name": "Il Gigi Proietti Globe Theatre Silvano Toti",
+      "rows": 40,
+      "seats_in_row": 65
+    }
+  },
+  {
+    "model": "theatre.performance",
+    "pk": 1,
+    "fields": {
+      "play": 3,
+      "theatre_hall": 1,
+      "show_time": "2024-06-01T19:00:00"
+    }
+  },
+  {
+    "model": "theatre.performance",
+    "pk": 2,
+    "fields": {
+      "play": 2,
+      "theatre_hall": 2,
+      "show_time": "2024-06-08T20:00:00"
+    }
+  },
+  {
+    "model": "theatre.performance",
+    "pk": 3,
+    "fields": {
+      "play": 1,
+      "theatre_hall": 1,
+      "show_time": "2024-06-15T18:00:00"
+    }
+  },
+  {
+    "model": "theatre.reservation",
+    "pk": 5,
+    "fields": {
+      "created_at": "2024-05-16T08:19:12.076",
+      "user": 1
+    }
+  },
+  {
+    "model": "theatre.reservation",
+    "pk": 6,
+    "fields": {
+      "created_at": "2024-05-16T08:23:10.327",
+      "user": 5
+    }
+  },
+  {
+    "model": "theatre.reservation",
+    "pk": 7,
+    "fields": {
+      "created_at": "2024-05-16T08:23:14.080",
+      "user": 6
+    }
+  },
+  {
+    "model": "theatre.reservation",
+    "pk": 8,
+    "fields": {
+      "created_at": "2024-05-16T08:23:16.618",
+      "user": 7
+    }
+  },
+  {
+    "model": "theatre.ticket",
+    "pk": 1,
+    "fields": {
+      "row": 1,
+      "seat": 1,
+      "performance": 1,
+      "reservation": 5
+    }
+  },
+  {
+    "model": "theatre.ticket",
+    "pk": 2,
+    "fields": {
+      "row": 1,
+      "seat": 2,
+      "performance": 1,
+      "reservation": 5
+    }
+  },
+  {
+    "model": "theatre.ticket",
+    "pk": 3,
+    "fields": {
+      "row": 1,
+      "seat": 1,
+      "performance": 2,
+      "reservation": 5
+    }
+  },
+  {
+    "model": "theatre.ticket",
+    "pk": 4,
+    "fields": {
+      "row": 1,
+      "seat": 2,
+      "performance": 2,
+      "reservation": 5
+    }
+  },
+  {
+    "model": "theatre.ticket",
+    "pk": 5,
+    "fields": {
+      "row": 1,
+      "seat": 1,
+      "performance": 3,
+      "reservation": 5
+    }
+  },
+  {
+    "model": "theatre.ticket",
+    "pk": 6,
+    "fields": {
+      "row": 1,
+      "seat": 2,
+      "performance": 3,
+      "reservation": 5
+    }
+  },
+  {
+    "model": "theatre.ticket",
+    "pk": 7,
+    "fields": {
+      "row": 2,
+      "seat": 1,
+      "performance": 1,
+      "reservation": 6
+    }
+  },
+  {
+    "model": "theatre.ticket",
+    "pk": 8,
+    "fields": {
+      "row": 2,
+      "seat": 1,
+      "performance": 2,
+      "reservation": 6
+    }
+  },
+  {
+    "model": "theatre.ticket",
+    "pk": 9,
+    "fields": {
+      "row": 2,
+      "seat": 1,
+      "performance": 3,
+      "reservation": 6
+    }
+  },
+  {
+    "model": "theatre.ticket",
+    "pk": 10,
+    "fields": {
+      "row": 3,
+      "seat": 2,
+      "performance": 1,
+      "reservation": 7
+    }
+  },
+  {
+    "model": "theatre.ticket",
+    "pk": 11,
+    "fields": {
+      "row": 3,
+      "seat": 2,
+      "performance": 2,
+      "reservation": 7
+    }
+  },
+  {
+    "model": "theatre.ticket",
+    "pk": 12,
+    "fields": {
+      "row": 3,
+      "seat": 2,
+      "performance": 3,
+      "reservation": 7
+    }
+  },
+  {
+    "model": "theatre.ticket",
+    "pk": 13,
+    "fields": {
+      "row": 4,
+      "seat": 3,
+      "performance": 1,
+      "reservation": 8
+    }
+  },
+  {
+    "model": "theatre.ticket",
+    "pk": 14,
+    "fields": {
+      "row": 4,
+      "seat": 3,
+      "performance": 2,
+      "reservation": 8
+    }
+  },
+  {
+    "model": "theatre.ticket",
+    "pk": 15,
+    "fields": {
+      "row": 4,
+      "seat": 3,
+      "performance": 3,
+      "reservation": 8
+    }
+  },
+  {
+    "model": "user.user",
+    "pk": 1,
+    "fields": {
+      "password": "pbkdf2_sha256$720000$pSctmB3sGAZpnxSaYYLC8Z$pckTl/5ME1pkffHE56BI6bF7iEBbA0GQQP+/5+a5GIc=",
+      "last_login": "2024-05-16T05:07:43.568",
+      "is_superuser": true,
+      "first_name": "",
+      "last_name": "",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2024-05-15T13:00:19.911",
+      "email": "admin@site.com",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "user.user",
+    "pk": 5,
+    "fields": {
+      "password": "pbkdf2_sha256$720000$CAiRYwLmasQDOPaiv7BTIE$gPR56FnGVpLUcJZ903Dy6eCHuRNSQmiaI2bIlhd5dHI=",
+      "last_login": null,
+      "is_superuser": false,
+      "first_name": "",
+      "last_name": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-05-16T07:55:18.726",
+      "email": "user1@user.com",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "user.user",
+    "pk": 6,
+    "fields": {
+      "password": "pbkdf2_sha256$720000$URAh4cjISm1JmiceMCvucN$Qc83Fsf+du5ROKXcRrzsLZ1YW26i2/xPvu0ZB1EEWJ8=",
+      "last_login": null,
+      "is_superuser": false,
+      "first_name": "",
+      "last_name": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-05-16T07:55:38.866",
+      "email": "user2@user.com",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "user.user",
+    "pk": 7,
+    "fields": {
+      "password": "pbkdf2_sha256$720000$anVQvhd7Bo69tzJJI1CuJ3$1fxexkZ37nF0MLYBPCXW/GL9FP62cYj9Nm0N6B77fys=",
+      "last_login": null,
+      "is_superuser": false,
+      "first_name": "",
+      "last_name": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-05-16T07:55:53.034",
+      "email": "user3@user.com",
+      "groups": [],
+      "user_permissions": []
+    }
+  }
+]
